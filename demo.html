@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>谭磊的个人简历</title>
+	<link rel="stylesheet" href="css/jquery.fullPage.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/jquery-3.2.1.js"></script>
+ 
+<!-- jquery.easings.min.js 是必须的，用于 easing 参数，也可以使用完整的 jQuery UI 代替 -->
+    <script src="js/jquery.easings.min.js"></script>
+ 
+<!-- 如果 scrollOverflow 设置为 true，则需要引入 jquery.slimscroll.min.js，一般情况下不需要 -->
+    <script src="js/scrolloverflow.min.js"></script>
+ 
+    <script src="js/jquery.fullPage.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+    @media only screen and (max-width: 640px){
+        .fr{display: none;}
+        .item{width: 100%;font-size: 12px;}
+        .git{display: none;}
+
+    }
+    </style>
+    <script>
+$(function(){
+    $('#box').fullpage({
+        // 设置每一屏的颜色 接受数组
+        'sectionsColor' : ['#86AFA4','#0F8E83','#4A5B8B','#48809A','#9C946D'],
+        // 重要：设置锚点 （哈希）
+        'anchors': ['page1', 'page2', 'page3', 'page4','page5'],
+        // 无缝滚动（循环滚动的意思）
+        'continuousVertical' : true,
+        // 绑定自定义的菜单栏
+        'menu' : '#menu',
+        // 设置侧边导航 默认值是false
+        'navigation': true,
+        // 侧边导航的位置 
+        'navigationPosition' : 'right',
+        //项目滚动条颜色
+        'navigationColor':'red',
+        /*滚动的速度*/
+        'scrollingSpeed' : 500,
+        // 当滚动到哪一屏的回调函数  接收 anchorLink 和 index 两个参数，anchorLink 是锚链接的名称，index 是序号，从1开始计算
+        'navigationTooltips': ['首页', '关于我','技能/经历','作品','联系我'],
+        afterLoad : function(anchorLink, index){
+            console.log('我来到了第'+index+'屏')
+        },
+        // 滚动前的回调函数，接收 index、nextIndex 和 direction 3个参数：
+        // index 是离开的“页面”的序号，从1开始计算；
+
+        // nextIndex 是滚动到的“页面”的序号，从1开始计算；
+
+        // direction 判断往上滚动还是往下滚动，值是 up 或 down。
+        onLeave : function(index,nextIndex,direction){
+            console.log('我要开始滚动了，我现在在第'+index +'屏，方向为：'+ direction + '我即将去往第'+nextIndex+'屏');
+        }
+    })
+})
+ </script>
+</head>
+
+<body>
+  <a href="https://github.com/tanlei97" class="git"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:999;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    <ul id="menu" style="display:none">
+        <!-- data-menuanchor 绑定active的 关联哈希值 哈希值是多少就给谁添加active这个类，锚点 必须跟锚点一一对应 点击跳转的-->
+        <li data-menuanchor="page1" class="active"><a href="#page1">首页</a></li>
+        <li data-menuanchor="page2"><a href="#page2">关于我</a></li>
+        <li data-menuanchor="page3"><a href="#page3">技能</a></li>
+        <li data-menuanchor="page4"><a href="#page4">作品</a></li>
+        <li data-menuanchor="page5"><a href="#page5">联系</a></li>
+    </ul>
+    <!-- 基本的骨架 -->
+    <div id="box">
+        <div class="section">
+            <div id="header">
+                <div class="img_header"><img src="img/tl.jpg" alt="个人头像"></div>
+                <p class="mine">人生在于不断的去学习和进步，不断更新自己的技能,时刻处于学习道路上！</p>
+                <div class="introduce">
+                    <p>我叫谭磊</p>
+                    <p>一名前端工程师</p>
+                    <p>正走在前端的路上</p>
+                    <p><a href="https://mail.qq.com" style="cursor: pointer;color:#fff;">1280300273@qq.com</a></p>
+                </div>
+            
+            </div>
+        </div>
+        <div class="section">
+            <div id="about">
+                <h6>关于我</h6>
+                <div class="edu clearfix">
+                <ul class="univer">
+                <li><i class="icon education"></i><span>学历/大专</span></li>
+                <li><i class="icon age"></i><span>年龄/26</span></li>
+                <li><i class="icon location"></i><span>坐标/深圳</span></li>
+                <li><i class="icon status"></i><span>状态/求职</span></li>
+                </ul>
+                </div>
+                <div class="exp">
+                    <p>2012年毕业于武汉船舶职业技术学院</p>
+                    <p>15年年底无意接触到前端，并开始自学前端</p>
+                    <p>于2016年开始从事前端工作，专注写出高效简洁代码</p>
+                    <p>高效的自学能力，和独立分析解决问题的能力，喜欢炫酷的网页</p>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div id="experience">
+                <h6>经历</h6>
+               <div id="tab" class="clearfix">
+                   <ul id="tab_ctr">
+                       <li ><div class="images">
+                        <img src="img/chilun.svg" alt="小齿轮"></div>
+                        <div class="content"><h6>武汉小齿轮科技有限公司</h6><p>2016.3-2017.3</p><p>&lt;web前端开发&gt;</p>
+                          <ul><li>1.负责网站的布局，和一些交互功能。</li>
+                          <li>2.利用ajax向后台发送请求，实现交互。</li>
+                          <li>3.对网站的用户体验以及访问速度进行优化。</li></ul>
+                        </div></li>
+                       <li ><div class="images"><img src="img/taobao.svg" alt="淘点点"></div>
+                        <div class="content"><h6>武汉三人为众科技技术有限公司</h6><p>2014.10-2016.3</p><p>&lt;BD经理&gt;</p>
+                          <ul><li>1.负责阿里巴巴旗下淘点点的业务，商家开发和维护。</li>
+                          <li>2.第一次进入互联网工作，感觉很激情、向上。团队合作增强。</li>
+                          <li>3.工作之余了解了WEB前端开发，开始自发性的自学web前端。</li></ul></div></li>
+                       <li ><div class="images"><img src="img/fu.svg" alt="富士康"></div>
+                        <div class="content"><h6>富士康科技集团</h6><p>2012.7-2014.3</p><p>&lt;分析维修工程师&gt;</p>
+                          <ul><li>1.负责回收的问题IPAD主板问题分析。</li>
+                          <li>2.分析维修好的板子进行跟踪，记录问题板的状态。</li>
+                          <li>3.学习各种处理问题的能力。</li></ul></div></li>
+                   </ul>
+                   <div id="ctr">
+                   <span class="on"></span>
+                   <span></span>
+                   <span></span>
+                   </div>
+
+               </div>
+               <p>2016年，开始自学web前端开发，对前端何有兴趣</p>
+            </div>
+
+        </div>
+        <div class="section">
+             <div id="production">
+                 <h6>我的作品</h6>
+                 <div class="items clearfix">
+                    <div class="item fl"><h6>武汉小齿轮官网</h6><p>第一份前端的工作，让我学习到了很多，在项目中布局(html、css、html5、css3)和后台交互(ajax)以及一些用户交互(JQ和js)。前端框架层出不穷，需要学习的还有很多。</p><a href="http://24a233012.atobo.com.cn/"><i></i></a></div>
+                    <div class="item fr"><h6>京东手机首页</h6><p>随着移动设备的火热，移动端页面也渐渐重要。设置CSS3的最新属性box-sizing进行百分比布局，手机端WEB网页端，以width为640px为主，向下兼容到width为300px的手机。</p><a href="https://tanlei97.github.io/shopDemo/"><i></i></a></div>
+                    <div class="item fl"><h6>电商购物网站</h6><p>仿照做的一个电商购物网站，一些简单的JS应用，把PSD设计图转换为网页，自己加了些效果。整体的布局和CSS应用，轮播，导航菜单，回到顶部的应用，</p><a href="https://tanlei97.github.io/test/test.html"><i></i></a></div>
+                    <div class="item fr"><h6>bootstrap响应式网站</h6><p>利用bootstrap进行布局、组件、CSS自适应。应用icon字体文件，做到手机，平板电脑多设备的兼容。</p><a href="https://tanlei97.github.io/bs/"><i></i></a></div>
+                    <div class="item fl"><h6>手机版淘宝首页</h6><p>手机版web淘宝首页，应用了bootstrap.js，swiper.js,弹性盒子flexible.js。</p><a href="https://tanlei97.github.io/tb/"><i></i></a></div>
+                    <div class="item fr"><h6>ajax一些的应用和封装</h6><p>百度和豆瓣的跨域搜索应用以及跨域的几种方式，原生JS封装的AJAX函数，方便运用。</p><a href="https://github.com/tanlei97/ajax"><i></i></a></div>
+                 </div>
+             </div>
+        </div>
+        <div class="section">
+           <div id="contact">
+               <h6>联系我</h6>
+               <span>代码</span><span>乐观</span><span>活力</span><span>未来</span>
+               <p>折腾代码，热爱生活</p>
+               <p>喜欢尝试，期待新鲜事物</p>
+               <p>喜欢前端，贴近用户</p>
+               <p>没有不进步的人生，只有不进取的人</p>
+               <p>良师益友，感谢一路上有你</p>
+               <div class="contact_link clearfix">
+                <a href="https://github.com/tanlei97"><img src="img/GitHub.jpg"  alt="github" title="github"></a>
+                <a href="http://www.weibo.com/1938193397/profile?rightmod=1&wvr=6&mod=personinfo"><img src="img/sina.jpg" alt="新浪" title="新浪"></a>
+                <a href="https://www.zhihu.com/people/tan-xiao-shi-46/activities"><img src="img/zhihu.jpg" alt="知乎" title="知乎"></a>
+                
+               </div>
+               <hr>
+               <p style="position: absolute;bottom:10px;left:50%;margin-left:-78px;"> Copyright ©tanlei</p>
+           </div>
+        </div>
+    </div>
+    <script src='js/main.js'></script>
+</body>
+
+</html>
